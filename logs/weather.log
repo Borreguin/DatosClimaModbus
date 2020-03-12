@@ -1,0 +1,19 @@
+No se pudo correr el proceso de manera normal'RangeIndex' object cannot be interpreted as an integer
+No se pudo correr el proceso de manera normal 
+'RangeIndex' object cannot be interpreted as an integer
+Traceback (most recent call last):
+  File "E:/paquetes/clima/clima/main.py", line 93, in <module>
+    get_info_from_api()
+  File "E:/paquetes/clima/clima/main.py", line 44, in get_info_from_api
+    for ix in range(df.index):
+TypeError: 'RangeIndex' object cannot be interpreted as an integer
+
+[2020-03-12 16:09:32.859368] No se pudo correr el proceso de manera normal 
+'RangeIndex' object cannot be interpreted as an integer
+Traceback (most recent call last):
+  File "E:/paquetes/clima/clima/main.py", line 93, in <module>
+    get_info_from_api()
+  File "E:/paquetes/clima/clima/main.py", line 44, in get_info_from_api
+    for ix in range(df.index):
+TypeError: 'RangeIndex' object cannot be interpreted as an integer
+
