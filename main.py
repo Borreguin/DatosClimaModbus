@@ -40,7 +40,7 @@ base_url = "http://api.openweathermap.org/data/2.5/weather?"
 def get_info_from_api():
 
     df = pd.read_excel(excel_file)
-
+    n_cities = 0
     for ix in df.index:
         city_name = df[lb_city].loc[ix]
         modbus_add = df[lb_modbus_add].loc[ix]
@@ -49,29 +49,36 @@ def get_info_from_api():
 
         response = requests.get(complete_url)
         resp_dict = response.json()
-        print(f"[{dt.datetime.now()}] respuesta para ciudad [{city_name}]: {resp_dict}")
+        print(f"\n[{dt.datetime.now()}] respuesta para ciudad [{city_name}]: {resp_dict}")
         if resp_dict["cod"] != "404":
             # filtrado de información:
-            main_content = resp_dict["main"]
-            current_temperature = main_content["temp"]
-            current_humidiy = main_content["humidity"]
-            weather_dict = resp_dict["weather"]
-            # weather_description = weather_dict[0]["description"]
-            weather_id = int(weather_dict[0]["id"])
+            try:
+                main_content = resp_dict["main"]
+                current_temperature = main_content["temp"]
+                current_humidiy = main_content["humidity"]
+                weather_dict = resp_dict["weather"]
+                # weather_description = weather_dict[0]["description"]
+                weather_id = int(weather_dict[0]["id"])
 
-            # procesamiento de los datos
-            # Temperatura en grados Kelvin, transformación a grados centigrados
-            current_temperature = current_temperature - 273.15
-            w_condition_alarm = (weather_id > 199 and weather_id < 300)
+                # procesamiento de los datos
+                # Temperatura en grados Kelvin, transformación a grados centigrados
+                current_temperature = current_temperature - 273.15
+                w_condition_alarm = (weather_id > 199 and weather_id < 300)
 
-            # enviando por Modbus
-            c.write_float(modbus_add, [current_temperature])
-            c.write_float(modbus_add + 2, [current_humidiy])
-            c.write_single_coil(modbus_alarm, w_condition_alarm)
-
+                # enviando por Modbus
+                c.write_float(modbus_add, [current_temperature])
+                c.write_float(modbus_add + 2, [current_humidiy])
+                c.write_single_coil(modbus_alarm, w_condition_alarm)
+                n_cities += 1
+            except Exception as e:
+                tb = traceback.format_exc()
+                msg = tb + "\n" + str(e)
+                print(msg)
+                logger.error(msg)
         else:
-            print(" City Not Found ")
-
+            print("City Not Found")
+    return f"[{dt.datetime.now()}] Obtención de datos correcto. " \
+                     f"Se han obtenido datos de {n_cities} ciudades"
 
 def init_logger():
     global logger
@@ -80,7 +87,7 @@ def init_logger():
     # getLogger(__name__):   decorators loggers to file + werkzeug loggers to stdout
     # getLogger('werkzeug'): decorators loggers to file + nothing to stdout
     logger = logging.getLogger(__name__)
-    logger.setLevel(logging.ERROR)
+    logger.setLevel(logging.INFO)
     logger.addHandler(handler)
 
 
@@ -90,7 +97,9 @@ if __name__ == '__main__':
     init_logger()
     # ejecutar proceso
     try:
-        get_info_from_api()
+        msg = get_info_from_api()
+        print(msg)
+        logger.info(msg)
     except Exception as e:
         tb = traceback.format_exc()
         msg = f"[{dt.datetime.now()}] No se pudo correr el proceso de manera normal \n" + str(e) + "\n" + str(tb)

@@ -1,0 +1,1 @@
+cd C:\D_aplicaciones\weather_adquisition & C: & C:\ProgramData\Anaconda3\Scripts\activate.bat & C:\ProgramData\Anaconda3\python.exe "C:\D_aplicaciones\weather_adquisition\main.py"
