@@ -53,21 +53,23 @@ def get_info_from_api():
         if resp_dict["cod"] != "404":
             # filtrado de información:
             try:
-                main_content = resp_dict["main"]
-                current_temperature = main_content["temp"]
-                current_humidiy = main_content["humidity"]
+                #main_content = resp_dict["main"]
+                #current_temperature = main_content["temp"]
+                #current_humidiy = main_content["humidity"]
                 weather_dict = resp_dict["weather"]
-                # weather_description = weather_dict[0]["description"]
+                weather_description = weather_dict[0]["description"]
                 weather_id = int(weather_dict[0]["id"])
 
                 # procesamiento de los datos
                 # Temperatura en grados Kelvin, transformación a grados centigrados
-                current_temperature = current_temperature - 273.15
+                #current_temperature = current_temperature - 273.15
                 w_condition_alarm = (weather_id > 199 and weather_id < 300)
 
                 # enviando por Modbus
-                c.write_float(modbus_add, [current_temperature])
-                c.write_float(modbus_add + 2, [current_humidiy])
+               
+                c.write_float(modbus_add, [weather_id])
+
+                #c.write_float(modbus_add + 2, [current_humidiy])
                 c.write_single_coil(modbus_alarm, w_condition_alarm)
                 n_cities += 1
             except Exception as e:
