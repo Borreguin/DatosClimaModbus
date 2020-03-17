@@ -19,7 +19,8 @@ Configuraciones generales del script
 # configuración de Excel
 lb_index = "Identificador"
 lb_city = "Ciudad"
-lb_modbus_add = "Modbus_Add"
+lb_modbus_add_wc = "Modbus_Add_wc"
+lb_modbus_add_temp = "Modbus_Add_temp"
 lb_modbus_ala ="Modbus_Ala"
 lb_activa = "Activa"
 excel_file = "config.xlsx"
@@ -43,7 +44,8 @@ def get_info_from_api():
     n_cities = 0
     for ix in df.index:
         city_name = df[lb_city].loc[ix]
-        modbus_add = df[lb_modbus_add].loc[ix]
+        modbus_add_temp = df[lb_modbus_add_temp].loc[ix]
+        modbus_add_wc = df[lb_modbus_add_wc].loc[ix]
         modbus_alarm = df[lb_modbus_ala].loc[ix]
         complete_url = base_url + f"appid={api_key}&q={city_name}"
 
@@ -53,8 +55,8 @@ def get_info_from_api():
         if resp_dict["cod"] != "404":
             # filtrado de información:
             try:
-                #main_content = resp_dict["main"]
-                #current_temperature = main_content["temp"]
+                main_content = resp_dict["main"]
+                current_temperature = main_content["temp"]
                 #current_humidiy = main_content["humidity"]
                 weather_dict = resp_dict["weather"]
                 weather_description = weather_dict[0]["description"]
@@ -62,12 +64,13 @@ def get_info_from_api():
 
                 # procesamiento de los datos
                 # Temperatura en grados Kelvin, transformación a grados centigrados
-                #current_temperature = current_temperature - 273.15
+                current_temperature = current_temperature - 273.15
                 w_condition_alarm = (weather_id > 199 and weather_id < 300)
 
                 # enviando por Modbus
-               
-                c.write_float(modbus_add, [weather_id])
+
+                c.write_float(modbus_add_temp, [current_temperature])
+                c.write_float(modbus_add_wc, [weather_id])
 
                 #c.write_float(modbus_add + 2, [current_humidiy])
                 c.write_single_coil(modbus_alarm, w_condition_alarm)

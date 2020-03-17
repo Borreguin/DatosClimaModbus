@@ -17,3 +17,170 @@ Traceback (most recent call last):
     for ix in range(df.index):
 TypeError: 'RangeIndex' object cannot be interpreted as an integer
 
+[2020-03-17 11:19:51.820838] No se pudo correr el proceso de manera normal 
+local variable 'lb_modbus_add_temp' referenced before assignment
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 104, in <module>
+    msg = get_info_from_api()
+  File "E:/Proyectos Phyton/clima2/main.py", line 47, in get_info_from_api
+    lb_modbus_add_temp = df[lb_modbus_add_temp].loc[ix]
+UnboundLocalError: local variable 'lb_modbus_add_temp' referenced before assignment
+
+[2020-03-17 11:21:24.731264] No se pudo correr el proceso de manera normal 
+local variable 'lb_modbus_add_temp' referenced before assignment
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 104, in <module>
+    msg = get_info_from_api()
+  File "E:/Proyectos Phyton/clima2/main.py", line 47, in get_info_from_api
+    lb_modbus_add_temp = df[lb_modbus_add_temp].loc[ix]
+UnboundLocalError: local variable 'lb_modbus_add_temp' referenced before assignment
+
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+Traceback (most recent call last):
+  File "E:/Proyectos Phyton/clima2/main.py", line 71, in get_info_from_api
+    c.write_float(lb_modbus_add_temp, [current_temperature])
+  File "E:\Proyectos Phyton\clima2\ModbusClass.py", line 20, in write_float
+    return self.write_multiple_registers(address, b16_l)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pyModbusTCP\client.py", line 695, in write_multiple_registers
+    if not (0x0000 <= int(regs_addr) <= 0xffff):
+ValueError: invalid literal for int() with base 10: 'Modbus_Add_temp'
+
+invalid literal for int() with base 10: 'Modbus_Add_temp'
+[2020-03-17 11:22:32.983995] Obtención de datos correcto. Se han obtenido datos de 0 ciudades
+[2020-03-17 11:23:07.153842] Obtención de datos correcto. Se han obtenido datos de 14 ciudades
+[2020-03-17 11:27:03.141658] Obtención de datos correcto. Se han obtenido datos de 14 ciudades
+[2020-03-17 11:29:22.684437] Obtención de datos correcto. Se han obtenido datos de 14 ciudades
+[2020-03-17 11:31:49.565204] Obtención de datos correcto. Se han obtenido datos de 14 ciudades
+[2020-03-17 11:32:07.974212] Obtención de datos correcto. Se han obtenido datos de 14 ciudades
+[2020-03-17 11:40:56.987707] Obtención de datos correcto. Se han obtenido datos de 14 ciudades
+[2020-03-17 13:11:09.655185] Obtención de datos correcto. Se han obtenido datos de 14 ciudades
+[2020-03-17 13:11:52.459234] Obtención de datos correcto. Se han obtenido datos de 14 ciudades
