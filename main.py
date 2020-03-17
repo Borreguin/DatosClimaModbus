@@ -70,6 +70,7 @@ def get_info_from_api():
                 # enviando por Modbus
 
                 c.write_float(modbus_add_temp, [current_temperature])
+
                 c.write_float(modbus_add_wc, [weather_id])
 
                 #c.write_float(modbus_add + 2, [current_humidiy])
