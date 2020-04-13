@@ -86,6 +86,7 @@ def get_info_from_api():
     return f"[{dt.datetime.now()}] Obtención de datos correcto. " \
                      f"Se han obtenido datos de {n_cities} ciudades"
 
+
 def init_logger():
     global logger
     # maxBytes to small number, in order to demonstrate the generation of multiple log files (backupCount).
