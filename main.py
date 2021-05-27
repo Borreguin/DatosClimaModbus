@@ -73,6 +73,7 @@ def get_info_from_api():
                 c.write_float(modbus_add_temp, [current_temperature])
 
                 c.write_float(modbus_add_wc, [weather_id])
+                # logger.info(city_name, current_temperature, weather_id)
 
                 # c.write_float(modbus_add + 2, [current_humidiy])
                 # c.write_single_coil(modbus_alarm, w_condition_alarm)
