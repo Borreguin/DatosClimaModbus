@@ -21,7 +21,7 @@ lb_index = "Identificador"
 lb_city = "Ciudad"
 lb_modbus_add_wc = "Modbus_Add_wc"
 lb_modbus_add_temp = "Modbus_Add_temp"
-lb_modbus_ala ="Modbus_Ala"
+# lb_modbus_ala ="Modbus_Ala"
 lb_activa = "Activa"
 excel_file = "config.xlsx"
 script_path = os.path.dirname(os.path.abspath(__file__))
@@ -41,12 +41,13 @@ base_url = "http://api.openweathermap.org/data/2.5/weather?"
 def get_info_from_api():
 
     df = pd.read_excel(excel_file)
+    df = df[df[lb_activa] == "x"]
     n_cities = 0
     for ix in df.index:
         city_name = df[lb_city].loc[ix]
-        modbus_add_temp = df[lb_modbus_add_temp].loc[ix]
-        modbus_add_wc = df[lb_modbus_add_wc].loc[ix]
-        modbus_alarm = df[lb_modbus_ala].loc[ix]
+        modbus_add_temp = int(df[lb_modbus_add_temp].loc[ix])
+        modbus_add_wc = int(df[lb_modbus_add_wc].loc[ix])
+        # modbus_alarm = int(df[lb_modbus_ala].loc[ix])
         complete_url = base_url + f"appid={api_key}&q={city_name}"
 
         response = requests.get(complete_url)
@@ -73,8 +74,8 @@ def get_info_from_api():
 
                 c.write_float(modbus_add_wc, [weather_id])
 
-                #c.write_float(modbus_add + 2, [current_humidiy])
-                c.write_single_coil(modbus_alarm, w_condition_alarm)
+                # c.write_float(modbus_add + 2, [current_humidiy])
+                # c.write_single_coil(modbus_alarm, w_condition_alarm)
                 n_cities += 1
             except Exception as e:
                 tb = traceback.format_exc()
